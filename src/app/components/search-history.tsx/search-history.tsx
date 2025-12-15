@@ -27,8 +27,10 @@ export default function SerachHistoryComponent(): ReactNode {
       <ul>
         {history.map((hisoryItem) => (
           <li key={hisoryItem.id}>
-            <span>{hisoryItem.title}</span>
-            <RemoveIcon onClick={(e) => handleRemoveItem(e, hisoryItem.id)} />
+            <button onClick={(e) => handleRemoveItem(e, hisoryItem.id)}>
+              <span>{hisoryItem.title}</span>
+              <RemoveIcon />
+            </button>
           </li>
         ))}
       </ul>
