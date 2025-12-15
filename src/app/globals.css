@@ -61,13 +61,13 @@ a {
 }
 
 body {
-  > * {
-    padding-inline: var(--full-width-padding-inline);
-  }
-
   min-block-size: 100vh;
   min-block-size: 100dvh;
 
   display: grid;
   grid-template-rows: auto 1fr auto;
+
+  > * {
+    padding-inline: var(--full-width-padding-inline);
+  }
 }

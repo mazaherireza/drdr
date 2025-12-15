@@ -6,6 +6,8 @@
 
   padding-block: 1rem;
 
+  background-color: var(--color-gray-98);
+
   .writings {
     grid-area: writings;
 
@@ -23,6 +25,16 @@
     > ul {
       display: flex;
       gap: 1rem;
+
+      > li {
+        svg {
+          font-size: 1.5rem;
+
+          &:hover {
+            color: var(--color-primary);
+          }
+        }
+      }
     }
   }
 

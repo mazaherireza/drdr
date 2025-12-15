@@ -5,6 +5,8 @@
 
   padding-block: 1rem;
 
+  background-color: var(--color-gray-98);
+
   nav {
     ul {
       display: flex;

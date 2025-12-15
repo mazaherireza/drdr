@@ -1,4 +1,5 @@
 import GlobalSerachBoxComponent from "./components/global-seach-box/global-search-box.component";
+import SerachHistoryComponent from "./components/search-history.tsx/search-history";
 
 import styles from "./page.module.css";
 
@@ -7,13 +8,7 @@ export default function Home() {
     <div className={styles.home}>
       <h1>دکتردکتر</h1>
       <GlobalSerachBoxComponent />
-      <div className={styles.history}>
-        <div className={styles.title}>آخرین جست‌وجوهای شما</div>
-        <ul>
-          <li>عمومی</li>
-          <li>پوست</li>
-        </ul>
-      </div>
+      <SerachHistoryComponent />
     </div>
   );
 }
