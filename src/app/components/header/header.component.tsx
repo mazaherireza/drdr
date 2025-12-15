@@ -4,6 +4,8 @@ import { ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import clsx from "clsx";
+
 import styles from "./header.module.css";
 
 export default function HeaderComponent(): ReactNode {
@@ -14,14 +16,14 @@ export default function HeaderComponent(): ReactNode {
       <nav>
         <ul>
           <li>
-            <Link href="/" className={pathname === "/" ? styles.active : ""}>
+            <Link href="/" className={clsx(pathname === "/" && styles.active)}>
               خانه
             </Link>
           </li>
           <li>
             <Link
               href="/search"
-              className={pathname === "/search" ? styles.active : ""}
+              className={clsx(pathname === "/search" && styles.active)}
             >
               جست‌وجو
             </Link>
