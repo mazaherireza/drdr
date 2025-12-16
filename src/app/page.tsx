@@ -6,6 +6,8 @@ import SerachHistoryComponent from "@/components/search-history.tsx/search-histo
 import styles from "./page.module.css";
 
 export default function Home(): ReactNode {
+  throw new Error("TEST");
+
   return (
     <div className={styles.home}>
       <h1>دکتردکتر</h1>
