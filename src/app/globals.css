@@ -1,14 +1,15 @@
 :root {
-  --color-gray-98: hsl(0deg 0% 98%);
-  --color-gray-90: hsl(0deg 0% 90%);
-  --color-gray-80: hsl(0deg 0% 80%);
-  --color-gray-70: hsl(0deg 0% 70%);
-  --color-gray-40: hsl(0deg 0% 40%);
-  --color-gray-30: hsl(0deg 0% 30%);
-  --color-gray-20: hsl(0deg 0% 20%);
-  --color-gray-16: hsl(0deg 0% 16%);
-  --color-gray-12: hsl(0deg 0% 12%);
-  --color-gray-10: hsl(0deg 0% 10%);
+  --color-gray-99: hsl(200deg 10% 99%);
+  --color-gray-98: hsl(200deg 10% 98%);
+  --color-gray-90: hsl(200deg 10% 90%);
+  --color-gray-80: hsl(200deg 10% 80%);
+  --color-gray-70: hsl(200deg 10% 70%);
+  --color-gray-40: hsl(200deg 10% 40%);
+  --color-gray-30: hsl(200deg 10% 30%);
+  --color-gray-20: hsl(200deg 10% 20%);
+  --color-gray-16: hsl(200deg 10% 16%);
+  --color-gray-12: hsl(200deg 10% 12%);
+  --color-gray-10: hsl(200deg 10% 10%);
 
   --color-white: hsl(0deg, 100%, 100%);
 
@@ -16,10 +17,10 @@
   --color-default-foreground: var(--color-gray-98);
 
   --color-primary: hsl(329deg 100% 48%);
-  --color-primary-fade: hsl(329deg 50% 96%);
+  --color-primary-fade: hsl(329deg 100% 96%);
   --color-primary-lighter: hsl(329deg 50% 52%);
   --color-primary-darker: hsl(329deg 50% 44%);
-  --color-primary-opposite: var(--color-white);
+  --color-primary-opposite: var(--color-gray-99);
 
   --border-radius: 0.875rem;
 
