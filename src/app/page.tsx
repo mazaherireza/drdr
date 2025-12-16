@@ -1,5 +1,5 @@
-import GlobalSerachBoxComponent from "./components/global-seach-box/global-search-box.component";
-import SerachHistoryComponent from "./components/search-history.tsx/search-history";
+import GlobalSerachBoxComponent from "@/components/global-seach-box/global-search-box.component";
+import SerachHistoryComponent from "@/components/search-history.tsx/search-history";
 
 import styles from "./page.module.css";
 
