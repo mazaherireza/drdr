@@ -1,0 +1,22 @@
+.not-found {
+  display: grid;
+  place-content: center;
+  gap: 1rem;
+
+  padding: 1rem;
+
+  min-block-size: 100%;
+
+  .writings {
+    .status-code {
+      font-size: var(--fz-800);
+      font-weight: 300;
+
+      line-height: 0.8;
+    }
+
+    h1 {
+      font-size: var(--fz-600);
+    }
+  }
+}
