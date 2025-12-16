@@ -1,7 +1,7 @@
 "use client";
 import { type ReactNode, type MouseEvent, useState } from "react";
 
-import { RemoveIcon } from "@/icons/remove.icon";
+import { RemoveIcon } from "@/assets/icons/remove.icon";
 
 import styles from "./search-history.module.css";
 
