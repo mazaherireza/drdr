@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import GlobalSerachBoxComponent from "@/components/global-seach-box/global-search-box.component";
 
@@ -6,7 +6,7 @@ import { convertEnNumToFa } from "@/utils/convert-en-num-to-fa";
 
 import styles from "./not-found.module.css";
 
-export default function NotFoundPage() {
+export default function NotFoundPage(): ReactNode {
   return (
     <div className={styles["not-found"]}>
       <div className={styles.writings}>

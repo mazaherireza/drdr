@@ -2,9 +2,9 @@ import { ReactNode } from "react";
 
 import Link from "next/link";
 
-import { GithubIcon } from "@/icons/github.icon";
-import { LinkedinIcon } from "@/icons/linkedin.icon";
-import { YoutubeIcon } from "@/icons/youtube.icon";
+import { GithubIcon } from "@/assets/icons/github.icon";
+import { LinkedinIcon } from "@/assets/icons/linkedin.icon";
+import { YoutubeIcon } from "@/assets/icons/youtube.icon";
 
 import styles from "./footer.module.css";
 

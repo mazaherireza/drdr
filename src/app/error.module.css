@@ -1,0 +1,57 @@
+.error {
+  display: grid;
+  grid-template-areas: "writings visuals" "actions visuals";
+  place-content: center;
+  column-gap: 2rem;
+  row-gap: 1rem;
+
+  min-block-size: 100%;
+
+  .writings {
+    grid-area: writings;
+
+    h1 {
+      margin-block-end: 1rem;
+
+      font-size: var(--fz-600);
+      font-weight: 600;
+    }
+  }
+
+  .visuals {
+    grid-area: visuals;
+    align-content: center;
+
+    img {
+      animation: spin 8s linear infinite;
+    }
+  }
+
+  .actions {
+    grid-area: actions;
+    grid-column: 1 / -1;
+
+    button {
+      background-color: transparent;
+      color: var(--color-primary);
+
+      padding: 0.25rem 0.5rem;
+
+      border: 1px solid currentColor;
+      border-radius: var(--border-radius);
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--color-primary);
+        color: var(--color-primary-opposite);
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}

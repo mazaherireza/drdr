@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
-import { LocationIcon } from "@/icons/location.icon";
-import { SearchIcon } from "@/icons/search.icon";
+import { LocationIcon } from "@/assets/icons/location.icon";
+import { SearchIcon } from "@/assets/icons/search.icon";
 
 import styles from "./global-search-box.module.css";
 
