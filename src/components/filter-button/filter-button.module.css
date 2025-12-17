@@ -1,0 +1,23 @@
+.filter-button {
+  background-color: transparent;
+  color: inherit;
+
+  display: grid;
+  place-content: center;
+
+  padding: 0.5rem 1rem;
+
+  border: 1px solid currentColor;
+  border-radius: var(--border-radius);
+
+  cursor: pointer;
+
+  transition: 0.2s ease-in-out;
+  transition-property: background-color, color;
+
+  &:hover,
+  &.active {
+    background-color: var(--color-primary);
+    color: var(--color-primary-opposite);
+  }
+}

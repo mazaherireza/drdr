@@ -1,6 +1,8 @@
 import { Vazirmatn } from "next/font/google";
 import type { Metadata } from "next";
 
+import type { ReactNode } from "react";
+
 import HeaderComponent from "@/components/header/header.component";
 import FooterComponent from "@/components/footer/footer.component";
 
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="fa" dir="rtl" className={vazirmatn.className}>
