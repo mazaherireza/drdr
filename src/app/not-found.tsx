@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import GlobalSerachBoxComponent from "@/components/global-seach-box/global-search-box.component";
+import GlobalSearchBoxComponent from "@/components/global-search-box/global-search-box.component";
 
 import { convertEnNumToFa } from "@/utils/convert-en-num-to-fa";
 
@@ -14,7 +14,7 @@ export default function NotFoundPage(): ReactNode {
         <h1>صفحه موردنظر پیدا نشد.</h1>
       </div>
 
-      <GlobalSerachBoxComponent />
+      <GlobalSearchBoxComponent />
     </div>
   );
 }
