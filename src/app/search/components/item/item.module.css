@@ -1,0 +1,19 @@
+.item {
+  display: grid;
+  place-content: center;
+
+  aspect-ratio: 1 / 1;
+
+  background-color: transparent;
+  color: inherit;
+
+  border: 1px solid currentColor;
+  border-radius: var(--border-radius);
+
+  &.active {
+    background-color: var(--color-primary-darker);
+    color: var(--color-primary-opposite);
+
+    border-color: var(--color-primary-darker);
+  }
+}
