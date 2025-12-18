@@ -1,18 +1,20 @@
-import { type ReactNode } from "react";
+"use client";
+
+import { type ReactNode, useContext } from "react";
+
+import { FilteredItemsContext } from "@/app/search/providers/filterd-items/filtered-items.provider";
 
 import ItemComponent from "@/app/search/components/item/item.component";
 
 import styles from "./list.module.css";
 
-const items = Array(100)
-  .fill(null)
-  .map((_, index) => index + 1);
+export default function ListComponent(): ReactNode {
+  const { filteredItems } = useContext(FilteredItemsContext);
 
-export default function ListComponet(): ReactNode {
   return (
     <ul className={styles.list}>
-      {items.map((item) => (
-        <ItemComponent key={item} item={item} />
+      {filteredItems.map((item) => (
+        <ItemComponent key={item.value} item={item} />
       ))}
     </ul>
   );
