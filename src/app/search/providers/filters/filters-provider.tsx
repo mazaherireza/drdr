@@ -13,14 +13,22 @@ type ContextValue = {
   filters: DivisibilityType;
   changeFilters: <TKey extends keyof DivisibilityType>(
     key: TKey,
-    value: Exclude<DivisibilityType[TKey], undefined>
+    value: DivisibilityType[TKey]
   ) => void;
   removeFilters: <TKey extends keyof DivisibilityType>(key: TKey) => void;
   clear: () => void;
 };
 
+const defaultFilters: DivisibilityType = {
+  even: true,
+  odd: true,
+  three: true,
+  five: true,
+  seven: true,
+};
+
 export const FiltersContext = createContext<ContextValue>({
-  filters: {},
+  filters: { ...defaultFilters },
   changeFilters: () => {},
   removeFilters: () => {},
   clear: () => {},
@@ -29,11 +37,13 @@ export const FiltersContext = createContext<ContextValue>({
 type Props = PropsWithChildren;
 
 export default function FiltersProvider({ children }: Props): ReactNode {
-  const [filters, setFilters] = useState<DivisibilityType>({});
+  const [filters, setFilters] = useState<DivisibilityType>({
+    ...defaultFilters,
+  });
 
   const changeFilters = <TKey extends keyof DivisibilityType>(
     key: TKey,
-    value: Exclude<DivisibilityType[TKey], undefined>
+    value: DivisibilityType[TKey]
   ): void => {
     setFilters((prev) => ({ ...prev, [key]: value }));
   };
@@ -49,7 +59,7 @@ export default function FiltersProvider({ children }: Props): ReactNode {
   };
 
   const clear = (): void => {
-    setFilters({});
+    setFilters({ ...defaultFilters });
   };
 
   return (
