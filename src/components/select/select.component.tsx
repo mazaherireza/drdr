@@ -1,10 +1,10 @@
 import {
-  ReactElement,
+  type ReactNode,
   useCallback,
   useEffect,
   useRef,
   useState,
-  MouseEvent,
+  type MouseEvent,
   useMemo,
 } from "react";
 
@@ -32,7 +32,7 @@ export default function SelectComponent({
   selectedOption,
   onSelectedOptionChange,
   onIsOpenChange,
-}: Props): ReactElement {
+}: Props): ReactNode {
   const [isOpen, setIsOpen] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(0);
 
