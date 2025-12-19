@@ -1,9 +1,11 @@
+import { GenderType } from "@/types/gender.type";
+
 export type DoctorModel = {
   id: string;
   name: string;
   image: string;
   isVerified: boolean;
-  gender: string;
+  gender: GenderType;
   averageRating: number;
   totalVotes: number;
   address: string;

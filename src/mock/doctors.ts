@@ -7,7 +7,7 @@ export const doctors: DoctorModel[] = [
     image:
       "/getImage/p24/search-men/ffe01df9c737d76a59ddd88b564f993e.jpg?size=150",
     isVerified: true,
-    gender: "آقا",
+    gender: "Male",
     averageRating: 4.73,
     totalVotes: 32,
     address:
