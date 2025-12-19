@@ -10,7 +10,7 @@ const historyList = [
   { id: "s-002", title: "پوست" },
 ];
 
-export default function SerachHistoryComponent(): ReactNode {
+export default function SearchHistoryComponent(): ReactNode {
   const [history, setHistory] = useState(historyList);
 
   const handleRemoveItem = (e: MouseEvent<HTMLOrSVGElement>, id: string) => {
