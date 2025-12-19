@@ -10,6 +10,6 @@ export type DoctorModel = {
   firstAvailableAppointment: string;
   brief: string;
   degree: string;
-  expertise: string;
+  speciality: string;
   badges: string[];
 };

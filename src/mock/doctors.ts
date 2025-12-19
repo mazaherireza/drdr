@@ -15,7 +15,7 @@ export const doctors: DoctorModel[] = [
     firstAvailableAppointment: "کمتر از یک ساعت",
     brief: "آسیب شناس گفتار و زبان",
     degree: "کارشناس",
-    expertise: "توانبخشی",
+    speciality: "توانبخشی",
     badges: ["کمترین معطلی"],
   },
 ];
