@@ -133,7 +133,7 @@ export default function SelectComponent({
     <div
       ref={containerRef}
       onBlur={() => setIsOpen(false)}
-      onClick={() => setIsOpen((old) => !old)}
+      onClick={() => setIsOpen((prev) => !prev)}
       tabIndex={0}
       className={clsx(
         styles.container,
