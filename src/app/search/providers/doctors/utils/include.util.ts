@@ -27,11 +27,11 @@ export function isSubjectedToTheSelectedProperty(
 
 export function isSubjectedToTheSelectedGender(
   doctorsGender: GenderType,
-  query?: GenderType
+  query?: string
 ) {
   if (!query) {
     return true;
   }
 
-  return doctorsGender === query ? true : false;
+  return doctorsGender == query ? true : false;
 }

@@ -19,7 +19,9 @@ import DoctorsProvider from "@/app/search/providers/doctors/doctors.provider";
 
 import styles from "./page.module.css";
 
-type SearchParams = { [key: string]: string | string[] | undefined };
+type SearchParams = {
+  [key: string]: string | string[] | undefined;
+};
 
 type Props = {
   searchParams: Promise<SearchParams>;
@@ -59,13 +61,12 @@ export default async function Page({
 }
 
 function generateDefaultFilters(searchParams: SearchParams): FiltersType {
-  const { query, expertise, gender, degree } = searchParams;
+  const { query, speciality, gender } = searchParams;
 
   return {
     query: normalizeFilter(query),
-    expertise: normalizeFilter(expertise),
+    speciality: normalizeFilter(speciality),
     gender: normalizeFilter(gender),
-    degree: normalizeFilter(degree),
   };
 }
 
