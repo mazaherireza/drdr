@@ -6,8 +6,9 @@ import CardComponet from "@/components/card/card.component";
 
 import { FiltersContext } from "@/app/search/providers/filters/filters.provider";
 
-import styles from "./filters-summary.module.css";
 import { FiltersType } from "@/types/filters.type";
+
+import styles from "./filters-summary.module.css";
 
 export default function FiltersSummaryComponent(): ReactNode {
   const { filters, dispatchFilters } = useContext(FiltersContext);

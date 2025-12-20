@@ -28,7 +28,7 @@ type Props = PropsWithChildren & {
   defaultFilters: FiltersType;
 };
 
-export function FiltersProvider({
+export default function FiltersProvider({
   defaultFilters,
   children,
 }: Props): ReactNode {

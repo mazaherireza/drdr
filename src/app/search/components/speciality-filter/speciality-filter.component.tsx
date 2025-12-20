@@ -3,14 +3,13 @@
 import { type ReactNode, useContext } from "react";
 import { FiltersContext } from "@/app/search/providers/filters/filters.provider";
 
-import CardComponet from "@/components/card/card.component";
+import CardComponent from "@/components/card/card.component";
 
-import styles from "./sepciality-filter.module.css";
+import styles from "./speciality-filter.module.css";
 
 const specialities: string[] = [
   "استخوان و مفاصل",
   "زنان، زایمان و نازایی",
-  "چشم پزشکی",
   "گوارش و معده",
   "کلیه و مجاری ادراری",
   "غدد و متابولیسم",
@@ -53,21 +52,19 @@ export default function SpecialityFilterComponent(): ReactNode {
   };
 
   return (
-    <CardComponet>
+    <CardComponent>
       <ul className={styles["speciality-filter"]}>
-        <ul className={styles["expertise-filter"]}>
-          {specialities.map((speciality) => (
-            <li key={speciality}>
-              <button
-                type="button"
-                onClick={() => buttonClickHandler(speciality)}
-              >
-                {speciality}
-              </button>
-            </li>
-          ))}
-        </ul>
+        {specialities.map((speciality) => (
+          <li key={speciality}>
+            <button
+              type="button"
+              onClick={() => buttonClickHandler(speciality)}
+            >
+              {speciality}
+            </button>
+          </li>
+        ))}
       </ul>
-    </CardComponet>
+    </CardComponent>
   );
 }

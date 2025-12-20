@@ -6,7 +6,6 @@ import { FiltersContext } from "@/app/search/providers/filters/filters.provider"
 
 import { SelectOptionType } from "@/types/select-option.type";
 
-import CardComponet from "@/components/card/card.component";
 import RadioFilterComponent from "@/app/search/components/radio-filter/radio-filter.component";
 
 const options: SelectOptionType[] = [
@@ -28,14 +27,12 @@ export default function GenderFilterComponent(): ReactNode {
   };
 
   return (
-    <CardComponet>
-      <RadioFilterComponent
-        title="جنسیت پزشک"
-        groupName="gender"
-        options={options}
-        value={filters.gender}
-        onChange={changeHandler}
-      />
-    </CardComponet>
+    <RadioFilterComponent
+      title="جنسیت پزشک"
+      groupName="gender"
+      options={options}
+      value={filters.gender}
+      onChange={changeHandler}
+    />
   );
 }

@@ -2,7 +2,7 @@
 
 import { type ReactNode, type ChangeEvent } from "react";
 
-import CardComponet from "@/components/card/card.component";
+import CardComponent from "@/components/card/card.component";
 
 import { SelectOptionType } from "@/types/select-option.type";
 
@@ -28,8 +28,8 @@ export default function RadioFilterComponent({
   };
 
   return (
-    <CardComponet>
-      <div className={styles["filter-component"]}>
+    <CardComponent>
+      <div className={styles["radio-filter"]}>
         <div className={styles.title}>{title}</div>
         {options.map((option) => (
           <label key={option.label}>
@@ -40,9 +40,10 @@ export default function RadioFilterComponent({
               checked={option.value === value}
               onChange={inputChangeHandler}
             />
+            {option.label}
           </label>
         ))}
       </div>
-    </CardComponet>
+    </CardComponent>
   );
 }

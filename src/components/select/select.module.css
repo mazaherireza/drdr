@@ -38,7 +38,7 @@
     inset-block-start: calc(100% + 0.5rem);
     inset-inline-start: 0;
     overflow-y: auto;
-    z-index: 100;
+    z-index: 999;
 
     max-block-size: 15rem;
     min-inline-size: 100%;
