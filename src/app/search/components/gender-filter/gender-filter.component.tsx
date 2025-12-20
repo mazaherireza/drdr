@@ -10,11 +10,11 @@ import RadioFilterComponent from "@/app/search/components/radio-filter/radio-fil
 
 const options: SelectOptionType[] = [
   {
-    value: "female",
+    value: "Female",
     label: "خانم",
   },
   {
-    value: "male",
+    value: "Male",
     label: "آقا",
   },
 ];
