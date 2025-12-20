@@ -3,7 +3,7 @@
 import { type ReactNode, useContext } from "react";
 
 import Link from "next/link";
-
+import Image from "next/image";
 import { LocationIcon } from "@/assets/icons/location.icon";
 
 import { DoctorsContext } from "@/app/search/providers/doctors/doctors.provider";
@@ -20,11 +20,9 @@ export default function ResultsComponent(): ReactNode {
         <li key={doctor.id}>
           <div className={styles.header}>
             <div className={styles.image}>
-              <img
+              <Image
                 src={`https://cdn.paziresh24.com${doctor.image}`}
                 alt=""
-                width={150}
-                height={150}
               />
             </div>
             <div className={styles.name}>{doctor.name}</div>
