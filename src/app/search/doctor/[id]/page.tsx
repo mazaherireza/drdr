@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { doctors } from "@/mock/doctors";
 
 import { DoctorModel } from "@/models/doctor.model";
-import { resolve } from "path";
 
 type Props = {
   params: { id: string };
