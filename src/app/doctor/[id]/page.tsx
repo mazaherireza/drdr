@@ -7,11 +7,11 @@ import { doctors } from "@/mock/doctors";
 import { DoctorModel } from "@/models/doctor.model";
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export default async function Page({ params }: Props): Promise<ReactNode> {
-  const doctor = await getDoctor(params.id);
+  const doctor = await getDoctor((await params).id);
 
   if (!doctor) {
     return notFound();
