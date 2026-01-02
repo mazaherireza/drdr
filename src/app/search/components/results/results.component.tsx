@@ -3,6 +3,7 @@
 import { type ReactNode, useContext } from "react";
 
 import Link from "next/link";
+import Image from "next/image";
 
 import { LocationIcon } from "@/assets/icons/location.icon";
 
@@ -20,9 +21,9 @@ export default function ResultsComponent(): ReactNode {
         <li key={doctor.id}>
           <div className={styles.header}>
             <div className={styles.image}>
-              <img
+              <Image
                 src={`https://cdn.paziresh24.com${doctor.image}`}
-                alt=""
+                alt="پروفایل پزشک"
                 width={150}
                 height={150}
               />

@@ -19,7 +19,7 @@
   --color-text-400: var(--color-gray-10);
   --color-text-700: var(--color-gray-40);
 
-  --color-primary: hsl(200deg 90% 46%);
+  --color-primary: hsl(200, 90%, 46%);
   --color-primary-fade: hsl(200deg 90% 96%);
   --color-primary-lighter: hsl(200deg 90% 50%);
   --color-primary-darker: hsl(200deg 90% 42%);

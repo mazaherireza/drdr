@@ -43,7 +43,7 @@
       .name {
         grid-area: name;
 
-        font-size: var(--fz-500);
+        font-size: var(--fz-400);
         font-weight: 700;
       }
 
@@ -54,7 +54,7 @@
 
         max-inline-size: 100%;
 
-        font-size: var(--fz-300);
+        font-size: var(--fz-200);
 
         text-overflow: ellipsis;
         text-wrap: nowrap;
@@ -68,12 +68,12 @@
         display: flex;
         gap: 0.5rem;
 
-        font-size: var(--fz-200);
+        font-size: var(--fz-100);
 
         .badge {
           background-color: var(--color-surface-400);
 
-          padding: 0.25rem 0.75rem;
+          padding: 0.25rem;
 
           border-radius: var(--border-radius);
         }
@@ -86,6 +86,8 @@
       overflow: hidden;
 
       max-inline-size: 100%;
+
+      font-size: var(--fz-300);
 
       text-overflow: ellipsis;
       text-wrap: nowrap;
@@ -125,12 +127,12 @@
         }
 
         .total-votes {
-          font-size: var(--fz-300);
+          font-size: var(--fz-200);
         }
       }
 
       .caption {
-        font-size: var(--fz-300);
+        font-size: var(--fz-200);
         text-align: center;
       }
 
