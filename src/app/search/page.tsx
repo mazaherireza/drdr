@@ -2,20 +2,20 @@ import { type ReactNode } from "react";
 
 import GlobalSearchBoxComponent from "@/components/global-search-box/global-search-box.component";
 
-import { doctors } from "@/mock/doctors";
+import { doctors } from "@/mocks/doctors.mock";
 
 import { FiltersType } from "@/types/filters.type";
 
-import AppointmentFilterComponent from "@/app/search/components/appointment-filter/appointment-filter.component";
-import SpecialityFilterComponent from "@/app/search/components/speciality-filter/speciality-filter.component";
-import FiltersSummaryComponent from "@/app/search/components/filters-summary/filters-summary.component";
-import GenderFilterComponent from "@/app/search/components/gender-filter/gender-filter.component";
-import ResultsComponent from "@/app/search/components/results/results.component";
-import SortComponent from "@/app/search/components/sort/sort.component";
-import StatsComponent from "@/app/search/components/stats/stats.component";
+import AppointmentFilterComponent from "./components/appointment-filter/appointment-filter.component";
+import SpecialityFilterComponent from "./components/speciality-filter/speciality-filter.component";
+import FiltersSummaryComponent from "./components/filters-summary/filters-summary.component";
+import GenderFilterComponent from "./components/gender-filter/gender-filter.component";
+import ResultsComponent from "./components/results/results.component";
+import SortComponent from "./components/sort/sort.component";
+import StatsComponent from "./components/stats/stats.component";
 
-import FiltersProvider from "@/app/search/providers/filters/filters.provider";
-import DoctorsProvider from "@/app/search/providers/doctors/doctors.provider";
+import FiltersProvider from "./providers/filters/filters.provider";
+import DoctorsProvider from "./providers/doctors/doctors.provider";
 
 import styles from "./page.module.css";
 
@@ -71,7 +71,7 @@ function generateDefaultFilters(searchParams: SearchParams): FiltersType {
 }
 
 function normalizeFilter(
-  value: string | string[] | undefined
+  value: string | string[] | undefined,
 ): string | undefined {
   if (Array.isArray(value)) {
     return value[0];

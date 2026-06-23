@@ -9,6 +9,7 @@ import {
 } from "react";
 
 import { FiltersType } from "@/types/filters.type";
+
 import {
   FiltersAction,
   filtersReducer,

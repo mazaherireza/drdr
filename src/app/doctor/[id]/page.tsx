@@ -2,7 +2,7 @@ import { type ReactNode } from "react";
 
 import { notFound } from "next/navigation";
 
-import { doctors } from "@/mock/doctors";
+import { doctors } from "@/mocks/doctors.mock";
 
 import { DoctorModel } from "@/models/doctor.model";
 
@@ -28,3 +28,4 @@ async function getDoctor(id: string): Promise<DoctorModel | undefined> {
     }, 1000);
   });
 }
+ 
