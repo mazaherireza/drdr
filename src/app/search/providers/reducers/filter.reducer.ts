@@ -16,7 +16,7 @@ export type FiltersAction =
 
 export function filtersReducer(
   filters: FiltersType,
-  action: FiltersAction
+  action: FiltersAction,
 ): FiltersType {
   switch (action.type) {
     case "UPDATE": {
@@ -24,7 +24,7 @@ export function filtersReducer(
     }
 
     case "REMOVE": {
-      const clone = structuredClone(filters);
+      const clone = { ...filters };
       delete clone[action.key];
       return clone;
     }
