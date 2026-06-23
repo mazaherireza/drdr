@@ -93,3 +93,5 @@ fabric.properties
 .idea/
 .vscode/
 /src/generated/prisma
+/src/generated/prisma
+/src/generated/prisma
