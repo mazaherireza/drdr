@@ -1,0 +1,23 @@
+.auth-form {
+  inline-size: min(40rem, 100%);
+
+  margin-inline: auto;
+
+  .writings {
+    display: grid;
+    gap: 1rem;
+
+    form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .change-form {
+      a {
+        color: var(--color-primary);
+
+        text-decoration: underline;
+      }
+    }
+  }
+}
