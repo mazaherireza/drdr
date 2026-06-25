@@ -5,6 +5,8 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { ButtonLinkComponent } from "@/components/button/button.component";
+
 import clsx from "clsx";
 
 import styles from "./header.module.css";
@@ -31,7 +33,14 @@ export default function HeaderComponent(): ReactNode {
           </li>
         </ul>
       </nav>
-      <button className={styles.cta}>ورود | ثبت‌نام</button>
+      <ButtonLinkComponent
+        className={styles.cta}
+        variant="primary"
+        shape="outlined"
+        href="/auth/sign-in"
+      >
+        ورود | ثبت‌نام
+      </ButtonLinkComponent>
     </header>
   );
 }
