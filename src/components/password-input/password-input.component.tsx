@@ -1,30 +1,32 @@
 "use client";
 
 import {
-   type ComponentProps,
-   type ForwardedRef,
+  type ComponentProps,
+  type ForwardedRef,
   forwardRef,
-   type ReactElement,
+  type ReactNode,
   useState,
 } from "react";
 
 import NormalInputComponent from "@/components/normal-input/normal-input.component";
+
+import EyeFill from "@/components/icons/eye-fill.icon";
+import EyeCloseFill from "@/components/icons/eye-close-fill.icon";
 
 type Props = ComponentProps<typeof NormalInputComponent>;
 
 function PasswordInputComponent(
   { ...otherProps }: Props,
   ref: ForwardedRef<HTMLInputElement>,
-): ReactElement {
+): ReactNode {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   return (
     <NormalInputComponent
       ref={ref}
       type={isVisible ? "text" : "password"}
-      prefixIcon={<MingcuteKey2Line />}
-      suffixIcon={isVisible ? <MingcuteEyeCloseLine /> : <MingcuteEye2Line />}
-      onSuffixClick={() => setIsVisible((old) => !old)}
+      suffixIcon={isVisible ? <EyeCloseFill /> : <EyeFill />}
+      onSuffixClick={() => setIsVisible((prev) => !prev)}
       {...otherProps}
     />
   );
