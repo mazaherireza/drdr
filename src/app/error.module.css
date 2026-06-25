@@ -23,7 +23,7 @@
     align-content: center;
 
     img {
-      animation: spin 8s linear infinite;
+      animation: spin 25s linear infinite;
     }
   }
 
