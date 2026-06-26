@@ -1,48 +1,34 @@
-import { NextRequest, NextResponse } from "next/server";
+import type { FetchedDataType } from "@/types/api-response.type";
 
-import type { ApiResponseType } from "@/types/api-response.type";
+import { toast } from "react-hot-toast";
 
-type ParseBodyResult<T> = [error: null, data: T] | [error: string, data: null];
+export async function fetchWithToast<T>(
+  input: RequestInfo | URL,
+  init: RequestInit = {},
+  successMessage?: string,
+): Promise<FetchedDataType<T>> {
+  const response = await fetch(input, {
+    headers: { "Content-Type": "application/json" },
+    ...init,
+  });
 
-export async function parseBody<T>(
-  request: NextRequest,
-): Promise<ParseBodyResult<T>> {
-  try {
-    const body = await request.json();
+  const result = await response.json();
 
-    return [null, body];
-  } catch (error) {
-    if (error instanceof Error) {
-      if (error.name === "SyntaxError") {
-        return ["Wrong Format", null];
-      }
+  if (!response.ok) {
+    let message = "Unexpected Error";
 
-      return [error.message, null];
+    if ("error" in result) {
+      message = result.error;
+
+      toast.error(message);
+
+      return { error: message };
     }
-
-    if (typeof error === "string") {
-      return [error, null];
-    }
-
-    return ["Unknown Error", null];
   }
-}
 
-export async function wrapWithTrycatch<T>(
-  callback: () => Promise<ApiResponseType<T>>,
-): Promise<ApiResponseType<T>> {
-  try {
-    return await callback();
-  } catch (error) {
-    if (error instanceof Error) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
-    }
-
-    return NextResponse.json(
-      { error: "Unknown Error" },
-      {
-        status: 500,
-      },
-    );
+  if (successMessage) {
+    toast.success(successMessage);
   }
+
+  return { data: result.data };
 }
