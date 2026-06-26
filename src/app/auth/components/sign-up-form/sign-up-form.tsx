@@ -10,9 +10,9 @@ import CardComponent from "@/components/card/card.component";
 import NormalInputComponent from "@/components/normal-input/normal-input.component";
 import PasswordInputComponent from "@/components/password-input/password-input.component";
 
-// import { SignUpDto } from "@/dto/auth.dto";
+import { SignUpDto } from "@/dto/auth.dto";
 
-// import { fetchWithToast } from "@/utils/fetch-utils";
+import { fetchWithToast } from "@/utils/fetch.util";
 
 import styles from "@/app/auth/styles/auth-form.module.css";
 
@@ -28,25 +28,25 @@ export default function SignUpFormComponent(): ReactNode {
 
     const formData = new FormData(e.currentTarget);
 
-    // const dto: SignUpDto = {
-    //   name: formData.get("name") as string,
-    //   username: formData.get("username") as string,
-    //   email: formData.get("email") as string,
-    //   password: formData.get("password") as string,
-    // };
+    const dto: SignUpDto = {
+      name: formData.get("name") as string,
+      username: formData.get("username") as string,
+      email: formData.get("email") as string,
+      password: formData.get("password") as string,
+    };
 
-    // const result = await fetchWithToast<null>(
-    //   "/api/auth/sign-up",
-    //   {
-    //     method: "POST",
-    //     body: JSON.stringify(dto),
-    //   },
-    //   "ثبت‌نام با موفقیت انجام شد.",
-    // );
+    const result = await fetchWithToast<null>(
+      "/api/auth/sign-up",
+      {
+        method: "POST",
+        body: JSON.stringify(dto),
+      },
+      "Registration has successfully completed",
+    );
 
-    // if (result.error) {
-    //   return;
-    // }
+    if (result.error) {
+      return;
+    }
 
     formRef.current?.reset();
     router.push("/dashboard");

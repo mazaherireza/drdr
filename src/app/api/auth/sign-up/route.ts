@@ -2,8 +2,8 @@ import { NextResponse, NextRequest } from "next/server";
 
 import { prisma } from "@/lib/prisma";
 
-import { wrapWithTrycatch } from "@/utils/fetch.util";
-import { parseBody } from "@/utils/fetch.util";
+import { wrapWithTrycatch } from "@/utils/api.util";
+import { parseBody } from "@/utils/api.util";
 
 import type { ApiResponseType } from "@/types/api-response.type";
 
