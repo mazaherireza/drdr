@@ -1,22 +1,34 @@
-import { NextResponse } from "next/server";
+import type { FetchedDataType } from "@/types/api-response.type";
 
-import type { ApiResponseType } from "@/types/api-response.type";
+import { toast } from "react-hot-toast";
 
-export async function wrapWithTrycatch<T>(
-  callback: () => Promise<ApiResponseType<T>>,
-): Promise<ApiResponseType<T>> {
-  try {
-    return await callback();
-  } catch (error) {
-    if (error instanceof Error) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
+export async function fetchWithToast<T>(
+  input: RequestInfo | URL,
+  init: RequestInit = {},
+  successMessage?: string,
+): Promise<FetchedDataType<T>> {
+  const response = await fetch(input, {
+    headers: { "Content-Type": "application/json" },
+    ...init,
+  });
+
+  const result = await response.json();
+
+  if (!response.ok) {
+    let message = "Unexpected Error";
+
+    if ("error" in result) {
+      message = result.error;
+
+      toast.error(message);
+
+      return { error: message };
     }
-
-    return NextResponse.json(
-      { error: "Something went wrong." },
-      {
-        status: 500,
-      },
-    );
   }
+
+  if (successMessage) {
+    toast.success(successMessage);
+  }
+
+  return { data: result.data };
 }

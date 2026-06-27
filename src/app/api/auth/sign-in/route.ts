@@ -7,32 +7,35 @@ import { parseBody } from "@/utils/api.util";
 
 import type { ApiResponseType } from "@/types/api-response.type";
 
-import { SignUpDto } from "@/dto/auth.dto";
+import { SignInDto } from "@/dto/auth.dto";
 
 export async function POST(
   request: NextRequest,
 ): Promise<ApiResponseType<null>> {
   return wrapWithTrycatch(async () => {
-    const [error, data] = await parseBody<SignUpDto>(request);
+    const [error, data] = await parseBody<SignInDto>(request);
 
     if (error !== null) {
       return NextResponse.json({ error }, { status: 400 });
     }
 
-    let user = await prisma.user.findUnique({
+    const user = await prisma.user.findUnique({
       where: { username: data.username },
     });
 
-    if (user) {
+    if (!user) {
       return NextResponse.json(
-        { error: "username has already taken." },
+        { error: "username not found" },
         { status: 400 },
       );
     }
 
-    user = await prisma.user.findUnique({
-      where: { username: data.email },
-    });
+    if (data.password !== user.password) {
+      return NextResponse.json(
+        { error: "username or password is incorrect" },
+        { status: 401 },
+      );
+    }
 
     if (user) {
       return NextResponse.json(
@@ -41,8 +44,6 @@ export async function POST(
       );
     }
 
-    await prisma.user.create({ data });
-
-    return NextResponse.json({ data: null }, { status: 201 });
+    return NextResponse.json({ data: null }, { status: 200 });
   });
 }
