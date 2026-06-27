@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 
 import { wrapWithTrycatch } from "@/utils/api.util";
 import { parseBody } from "@/utils/api.util";
+import { setAuthCookie } from "@/utils/set-auth-cookie.util";
 
 import type { ApiResponseType } from "@/types/api-response.type";
 
@@ -42,6 +43,8 @@ export async function POST(
     }
 
     await prisma.user.create({ data });
+
+    await setAuthCookie();
 
     return NextResponse.json({ data: null }, { status: 201 });
   });
