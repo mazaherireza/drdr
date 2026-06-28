@@ -16,7 +16,7 @@ const options: SelectOptionType[] = [
 
 export default function SortComponent(): ReactNode {
   const [selectedOption, setSelectedOption] = useState<SelectOptionType>(
-    options[0]
+    options[0],
   );
   return (
     <SelectComponent

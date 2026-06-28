@@ -1,4 +1,9 @@
-import { type ComponentProps, type ReactNode, forwardRef, type ForwardedRef } from "react";
+import {
+  type ComponentProps,
+  type ForwardedRef,
+  type ReactNode,
+  forwardRef,
+} from "react";
 
 import clsx from "clsx";
 
@@ -22,7 +27,7 @@ function NormalInputComponent(
     className,
     ...otherProps
   }: Props,
-  ref: ForwardedRef<HTMLInputElement>
+  ref: ForwardedRef<HTMLInputElement>,
 ): ReactNode {
   return (
     <label className={clsx(styles["normal-input"], className)}>

@@ -5,9 +5,9 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { ButtonLinkComponent } from "@/components/button/button.component";
-
 import clsx from "clsx";
+
+import { ButtonLinkComponent } from "@/components/button/button.component";
 
 import styles from "./header.module.css";
 

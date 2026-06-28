@@ -1,13 +1,14 @@
-import { Vazirmatn } from "next/font/google";
-import type { Metadata } from "next";
-
 import type { ReactNode } from "react";
 
-import HeaderComponent from "@/components/header/header.component";
+import type { Metadata } from "next";
+import { Vazirmatn } from "next/font/google";
+
 import FooterComponent from "@/components/footer/footer.component";
+import HeaderComponent from "@/components/header/header.component";
 import ToasterComponent from "@/components/toaster/toaster.component";
 
 import "@/styles/typography.css";
+
 import "./globals.css";
 
 const vazirmatn = Vazirmatn({

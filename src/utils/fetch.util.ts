@@ -1,6 +1,6 @@
-import type { FetchedDataType } from "@/types/api-response.type";
-
 import { toast } from "react-hot-toast";
+
+import type { FetchedDataType } from "@/types/api-response.type";
 
 export async function fetchWithToast<T>(
   input: RequestInfo | URL,

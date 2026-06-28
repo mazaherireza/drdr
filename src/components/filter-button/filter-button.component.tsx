@@ -1,4 +1,4 @@
-import type { ReactNode, ComponentProps } from "react";
+import type { ComponentProps, ReactNode } from "react";
 
 import clsx from "clsx";
 
@@ -19,7 +19,7 @@ export default function FilterButtonComponent({
       className={clsx(
         styles["filter-button"],
         isActive && styles.active,
-        className
+        className,
       )}
       {...otherProps}
     >

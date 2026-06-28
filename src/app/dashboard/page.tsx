@@ -4,9 +4,9 @@ import { type ReactNode } from "react";
 
 import { useRouter } from "next/navigation";
 
-import { fetchWithToast } from "@/utils/fetch.util";
-
 import { ButtonComponent } from "@/components/button/button.component";
+
+import { fetchWithToast } from "@/utils/fetch.util";
 
 import styles from "./page.module.css";
 

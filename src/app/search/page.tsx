@@ -7,15 +7,14 @@ import { doctors } from "@/mocks/doctors.mock";
 import { FiltersType } from "@/types/filters.type";
 
 import AppointmentFilterComponent from "./components/appointment-filter/appointment-filter.component";
-import SpecialityFilterComponent from "./components/speciality-filter/speciality-filter.component";
 import FiltersSummaryComponent from "./components/filters-summary/filters-summary.component";
 import GenderFilterComponent from "./components/gender-filter/gender-filter.component";
 import ResultsComponent from "./components/results/results.component";
 import SortComponent from "./components/sort/sort.component";
+import SpecialityFilterComponent from "./components/speciality-filter/speciality-filter.component";
 import StatsComponent from "./components/stats/stats.component";
-
-import FiltersProvider from "./providers/filters/filters.provider";
 import DoctorsProvider from "./providers/doctors/doctors.provider";
+import FiltersProvider from "./providers/filters/filters.provider";
 
 import styles from "./page.module.css";
 

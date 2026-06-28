@@ -1,23 +1,23 @@
 "use client";
 
 import {
-  createContext,
-  useContext,
-  useState,
-  useEffect,
   type PropsWithChildren,
   type ReactNode,
+  createContext,
   useCallback,
+  useContext,
+  useEffect,
+  useState,
 } from "react";
-
-import { DoctorModel } from "@/models/doctor.model";
 
 import { FiltersContext } from "@/app/search/providers/filters/filters.provider";
 
+import { DoctorModel } from "@/models/doctor.model";
+
 import {
-  isSubjectedToTheSelectedQuery,
-  isSubjectedToTheSelectedProperty,
   isSubjectedToTheSelectedGender,
+  isSubjectedToTheSelectedProperty,
+  isSubjectedToTheSelectedQuery,
 } from "./utils/include.util";
 
 type ContextValue = {
@@ -46,12 +46,12 @@ export default function DoctorsProvider({
         isSubjectedToTheSelectedQuery(doctor, filters.query) &&
         isSubjectedToTheSelectedProperty(
           doctor.speciality,
-          filters.speciality
+          filters.speciality,
         ) &&
         isSubjectedToTheSelectedGender(doctor.gender, filters.gender)
       );
     },
-    [filters]
+    [filters],
   );
 
   useEffect(() => {

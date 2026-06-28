@@ -1,6 +1,7 @@
 "use client";
 
 import { type ReactNode, useContext } from "react";
+
 import { FiltersContext } from "@/app/search/providers/filters/filters.provider";
 
 import CardComponent from "@/components/card/card.component";

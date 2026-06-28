@@ -28,4 +28,3 @@ async function getDoctor(id: string): Promise<DoctorModel | undefined> {
     }, 1000);
   });
 }
- 

@@ -41,7 +41,7 @@ export function ButtonComponent({
         styles[shape],
         styles[size],
         styles[position],
-        className
+        className,
       )}
       {...otherProps}
     >
@@ -69,7 +69,7 @@ export function ButtonLinkComponent({
         styles[shape],
         styles[size],
         styles[position],
-        className
+        className,
       )}
       {...otherProps}
     >

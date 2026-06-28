@@ -1,15 +1,15 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+
+import { SignUpDto } from "@/dto/auth.dto";
 
 import { prisma } from "@/lib/prisma";
 
-import { wrapWithTrycatch } from "@/utils/api.util";
-import { parseBody } from "@/utils/api.util";
-import { setAuthCookie } from "@/utils/cookie.util";
-import { hashPassword } from "@/utils/bcrypt.util";
-
 import type { ApiResponseType } from "@/types/api-response.type";
 
-import { SignUpDto } from "@/dto/auth.dto";
+import { wrapWithTrycatch } from "@/utils/api.util";
+import { parseBody } from "@/utils/api.util";
+import { hashPassword } from "@/utils/bcrypt.util";
+import { setAuthCookie } from "@/utils/cookie.util";
 
 export async function POST(
   request: NextRequest,

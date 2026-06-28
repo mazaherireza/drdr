@@ -1,5 +1,5 @@
 "use client";
-import { type ReactNode, type MouseEvent, useState } from "react";
+import { type MouseEvent, type ReactNode, useState } from "react";
 
 import { RemoveIcon } from "@/assets/icons/remove.icon";
 
