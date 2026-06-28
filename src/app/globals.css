@@ -98,6 +98,10 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 body {
   background-color: var(--color-surface-400);
   color: var(--color-text-400);
@@ -112,13 +116,5 @@ body {
 
   > * {
     padding-inline: var(--full-width-padding-inline);
-  }
-
-  .tagline {
-    background-color: var(--color-surface-300);
-
-    padding-block: 1rem;
-
-    text-align: center;
   }
 }
