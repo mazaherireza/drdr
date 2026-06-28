@@ -10,7 +10,7 @@ import { LocationIcon } from "@/assets/icons/location.icon";
 import { DoctorsContext } from "@/app/search/providers/doctors/doctors.provider";
 
 import styles from "./results.module.css";
-import { convertEnNumToFa } from "@/utils/convert-en-num-to-fa";
+import { convertEnNumToFa } from "@/utils/convert-en-num-to-fa.util";
 
 export default function ResultsComponent(): ReactNode {
   const { filteredDoctors } = useContext(DoctorsContext);
@@ -45,7 +45,7 @@ export default function ResultsComponent(): ReactNode {
             <div className={styles.rating}>
               <span className={styles["average-rating"]}>
                 {convertEnNumToFa(
-                  (Math.floor(doctor.averageRating * 10) / 10).toString()
+                  (Math.floor(doctor.averageRating * 10) / 10).toString(),
                 )}
               </span>{" "}
               <span className={styles["total-votes"]}>
