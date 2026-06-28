@@ -2,11 +2,10 @@
 
 import { type ReactNode, useContext } from "react";
 
+import RadioFilterComponent from "@/app/search/components/radio-filter/radio-filter.component";
 import { FiltersContext } from "@/app/search/providers/filters/filters.provider";
 
 import { SelectOptionType } from "@/types/select-option.type";
-
-import RadioFilterComponent from "@/app/search/components/radio-filter/radio-filter.component";
 
 const options: SelectOptionType[] = [
   {

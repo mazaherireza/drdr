@@ -1,9 +1,9 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
+
+import type { ApiResponseType } from "@/types/api-response.type";
 
 import { wrapWithTrycatch } from "@/utils/api.util";
 import { removeAuthCookie } from "@/utils/cookie.util";
-
-import type { ApiResponseType } from "@/types/api-response.type";
 
 export async function DELETE(): Promise<ApiResponseType<null>> {
   return wrapWithTrycatch(async () => {

@@ -2,9 +2,9 @@
 
 import { type ReactNode, useContext, useMemo } from "react";
 
-import CardComponet from "@/components/card/card.component";
-
 import { FiltersContext } from "@/app/search/providers/filters/filters.provider";
+
+import CardComponet from "@/components/card/card.component";
 
 import { FiltersType } from "@/types/filters.type";
 

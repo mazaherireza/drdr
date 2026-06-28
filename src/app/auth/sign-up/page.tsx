@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 
-import styles from "./page.module.css";
-
 import SignUpFormComponent from "@/app/auth/components/sign-up-form/sign-up-form";
+
+import styles from "./page.module.css";
 
 export default function Page(): ReactNode {
   return (

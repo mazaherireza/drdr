@@ -2,15 +2,16 @@
 
 import { type ReactNode, useContext } from "react";
 
-import Link from "next/link";
 import Image from "next/image";
-
-import { LocationIcon } from "@/assets/icons/location.icon";
+import Link from "next/link";
 
 import { DoctorsContext } from "@/app/search/providers/doctors/doctors.provider";
 
-import styles from "./results.module.css";
+import { LocationIcon } from "@/assets/icons/location.icon";
+
 import { convertEnNumToFa } from "@/utils/convert-en-num-to-fa.util";
+
+import styles from "./results.module.css";
 
 export default function ResultsComponent(): ReactNode {
   const { filteredDoctors } = useContext(DoctorsContext);

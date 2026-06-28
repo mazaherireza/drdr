@@ -1,6 +1,6 @@
 "use client";
 
-import { type ReactNode, type ChangeEvent } from "react";
+import { type ChangeEvent, type ReactNode } from "react";
 
 import CardComponent from "@/components/card/card.component";
 

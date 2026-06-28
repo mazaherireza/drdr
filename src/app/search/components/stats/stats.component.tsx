@@ -4,8 +4,9 @@ import { type ReactNode, useContext } from "react";
 
 import { DoctorsContext } from "@/app/search/providers/doctors/doctors.provider";
 
-import styles from "./stats.module.css";
 import { convertEnNumToFa } from "@/utils/convert-en-num-to-fa.util";
+
+import styles from "./stats.module.css";
 
 export default function StatsComponent(): ReactNode {
   const { filteredDoctors } = useContext(DoctorsContext);

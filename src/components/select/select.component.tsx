@@ -1,11 +1,11 @@
 import {
+  type MouseEvent,
   type ReactNode,
   useCallback,
   useEffect,
+  useMemo,
   useRef,
   useState,
-  type MouseEvent,
-  useMemo,
 } from "react";
 
 import clsx from "clsx";

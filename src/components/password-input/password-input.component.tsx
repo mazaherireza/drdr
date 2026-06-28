@@ -3,15 +3,14 @@
 import {
   type ComponentProps,
   type ForwardedRef,
-  forwardRef,
   type ReactNode,
+  forwardRef,
   useState,
 } from "react";
 
-import NormalInputComponent from "@/components/normal-input/normal-input.component";
-
-import EyeFill from "@/components/icons/eye-fill.icon";
 import EyeCloseFill from "@/components/icons/eye-close-fill.icon";
+import EyeFill from "@/components/icons/eye-fill.icon";
+import NormalInputComponent from "@/components/normal-input/normal-input.component";
 
 type Props = ComponentProps<typeof NormalInputComponent>;
 
