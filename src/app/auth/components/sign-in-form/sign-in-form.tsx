@@ -53,24 +53,26 @@ export default function SignInFormComponent(): ReactElement {
   return (
     <div className={styles["auth-form"]}>
       <CardComponent>
-        <h1>ورود!</h1>
-        <form ref={formRef} onSubmit={formSubmitHandler}>
-          <NormalInputComponent
-            label="نام کاربری"
-            type="text"
-            name="username"
-          />
-          <PasswordInputComponent
-            label="رمز عبور"
-            name="password"
-            autoComplete="current-password"
-          />
-          <ButtonComponent variant="primary">ورود</ButtonComponent>
-        </form>
-        <div className={styles["change-form"]}>
-          قبلاً ثبت‌نام نکردید؟
-          {` `}
-          <Link href="/auth/sign-up">ثبت‌نام کنید</Link>.
+        <div className={styles.writings}>
+          <h1>ورود!</h1>
+          <form ref={formRef} onSubmit={formSubmitHandler}>
+            <NormalInputComponent
+              label="نام کاربری"
+              type="text"
+              name="username"
+            />
+            <PasswordInputComponent
+              label="رمز عبور"
+              name="password"
+              autoComplete="current-password"
+            />
+            <ButtonComponent variant="primary">ورود</ButtonComponent>
+          </form>
+          <div className={styles["change-form"]}>
+            قبلاً ثبت‌نام نکردید؟
+            {` `}
+            <Link href="/auth/sign-up">ثبت‌نام کنید</Link>.
+          </div>
         </div>
       </CardComponent>
     </div>
