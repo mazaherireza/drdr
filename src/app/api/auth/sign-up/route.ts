@@ -4,7 +4,8 @@ import { prisma } from "@/lib/prisma";
 
 import { wrapWithTrycatch } from "@/utils/api.util";
 import { parseBody } from "@/utils/api.util";
-import { setAuthCookie } from "@/utils/set-auth-cookie.util";
+import { setAuthCookie } from "@/utils/cookie.util";
+import { hashPassword } from "@/utils/bcrypt.util";
 
 import type { ApiResponseType } from "@/types/api-response.type";
 
@@ -42,7 +43,9 @@ export async function POST(
       );
     }
 
-    await prisma.user.create({ data });
+    const hashedPassword = await hashPassword(data.password);
+
+    await prisma.user.create({ data: { ...data, password: hashedPassword } });
 
     await setAuthCookie();
 

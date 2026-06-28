@@ -4,7 +4,8 @@ import { prisma } from "@/lib/prisma";
 
 import { wrapWithTrycatch } from "@/utils/api.util";
 import { parseBody } from "@/utils/api.util";
-import { setAuthCookie } from "@/utils/set-auth-cookie.util";
+import { setAuthCookie } from "@/utils/cookie.util";
+import { comparePassword } from "@/utils/bcrypt.util";
 
 import type { ApiResponseType } from "@/types/api-response.type";
 
@@ -31,7 +32,7 @@ export async function POST(
       );
     }
 
-    if (data.password !== user.password) {
+    if (!(await comparePassword(data.password, user.password))) {
       return NextResponse.json(
         { error: "username or password is incorrect" },
         { status: 401 },
