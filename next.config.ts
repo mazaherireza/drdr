@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/dashboard",
-        destination: "/dashborad/profile",
+        destination: "/dashboard/profile",
         permanent: true,
       },
     ];
