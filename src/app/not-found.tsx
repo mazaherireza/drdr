@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 import GlobalSearchBoxComponent from "@/components/global-search-box/global-search-box.component";
 
-import { convertEnNumToFa } from "@/utils/convert-en-num-to-fa";
+import { convertEnNumToFa } from "@/utils/convert-en-num-to-fa.util";
 
 import styles from "./not-found.module.css";
 
