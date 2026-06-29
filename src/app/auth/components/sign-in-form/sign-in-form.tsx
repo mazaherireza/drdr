@@ -39,7 +39,7 @@ export default function SignInFormComponent(): ReactElement {
         method: "POST",
         body: JSON.stringify(dto),
       },
-      "Welcome",
+      "خوش آمدید",
     );
 
     if (result.error) {

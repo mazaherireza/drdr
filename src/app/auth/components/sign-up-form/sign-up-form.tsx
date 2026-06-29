@@ -41,7 +41,7 @@ export default function SignUpFormComponent(): ReactNode {
         method: "POST",
         body: JSON.stringify(dto),
       },
-      "Registration has successfully completed",
+      "ثبت‌نام با موفقیت انجام شد",
     );
 
     if (result.error) {
