@@ -7,8 +7,9 @@ const algorithm = "HS256";
 
 const secret = new TextEncoder().encode(process.env.TOKEN_SECRET!);
 
-export async function setAuthCookie(): Promise<void> {
+export async function setAuthCookie(userId: string): Promise<void> {
   const token = await new jose.SignJWT()
+    .setSubject(userId)
     .setProtectedHeader({ alg: algorithm })
     .setIssuedAt()
     .setExpirationTime("3d")
@@ -29,18 +30,24 @@ export async function removeAuthCookie(): Promise<void> {
   cookieStore.delete(process.env.TOKEN_KEY!);
 }
 
-export async function isSignedIn(request: NextRequest): Promise<boolean> {
+export async function extractUserId(
+  request: NextRequest,
+): Promise<string | null> {
   const token = request.cookies.get(process.env.TOKEN_KEY!);
 
   if (!token) {
-    return false;
+    return null;
   }
 
   try {
     await jose.jwtVerify(token.value, secret);
-    return true;
+    const claims = jose.decodeJwt(token.value);
+    if (!claims.sub) {
+      return null;
+    }
+    return claims.sub;
   } catch (error) {
     console.error(error);
-    return false;
+    return null;
   }
 }
