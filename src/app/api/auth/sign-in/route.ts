@@ -6,8 +6,7 @@ import { prisma } from "@/lib/prisma";
 
 import type { ApiResponseType } from "@/types/api-response.type";
 
-import { wrapWithTrycatch } from "@/utils/api.util";
-import { parseBody } from "@/utils/api.util";
+import { parseBody, wrapWithTrycatch } from "@/utils/api.util";
 import { comparePassword } from "@/utils/bcrypt.util";
 import { setAuthCookie } from "@/utils/cookie.util";
 
@@ -15,38 +14,31 @@ export async function POST(
   request: NextRequest,
 ): Promise<ApiResponseType<null>> {
   return wrapWithTrycatch(async () => {
-    const [error, data] = await parseBody<SignInDto>(request);
+    const [parsedError, body] = await parseBody<SignInDto>(request);
 
-    if (error !== null) {
-      return NextResponse.json({ error }, { status: 400 });
+    if (parsedError !== null) {
+      return NextResponse.json({ error: parsedError }, { status: 400 });
     }
 
-    const user = await prisma.user.findUnique({
-      where: { username: data.username },
+    const foundUser = await prisma.user.findUnique({
+      where: { username: body.username },
     });
 
-    if (!user) {
+    if (!foundUser) {
       return NextResponse.json(
-        { error: "username not found" },
+        { error: "کاربری با این مشخصات پیدا نشد" },
         { status: 400 },
       );
     }
 
-    if (!(await comparePassword(data.password, user.password))) {
+    if (!(await comparePassword(body.password, foundUser.password))) {
       return NextResponse.json(
-        { error: "username or password is incorrect" },
+        { error: "نام‌کاربری یا رمز عبور اشتباه است" },
         { status: 401 },
       );
     }
 
-    if (user) {
-      return NextResponse.json(
-        { error: "email has already taken." },
-        { status: 400 },
-      );
-    }
-
-    await setAuthCookie();
+    await setAuthCookie(foundUser.id);
 
     return NextResponse.json({ data: null }, { status: 200 });
   });
