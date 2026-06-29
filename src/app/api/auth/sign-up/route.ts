@@ -6,8 +6,7 @@ import { prisma } from "@/lib/prisma";
 
 import type { ApiResponseType } from "@/types/api-response.type";
 
-import { wrapWithTrycatch } from "@/utils/api.util";
-import { parseBody } from "@/utils/api.util";
+import { parseBody, wrapWithTrycatch } from "@/utils/api.util";
 import { hashPassword } from "@/utils/bcrypt.util";
 import { setAuthCookie } from "@/utils/cookie.util";
 
@@ -15,39 +14,38 @@ export async function POST(
   request: NextRequest,
 ): Promise<ApiResponseType<null>> {
   return wrapWithTrycatch(async () => {
-    const [error, data] = await parseBody<SignUpDto>(request);
+    const [parsedError, body] = await parseBody<SignUpDto>(request);
 
-    if (error !== null) {
-      return NextResponse.json({ error }, { status: 400 });
+    if (parsedError !== null) {
+      return NextResponse.json({ error: parsedError }, { status: 400 });
     }
 
-    let user = await prisma.user.findUnique({
-      where: { username: data.username },
+    let alreadExistedUser = await prisma.user.findUnique({
+      where: { username: body.username },
     });
 
-    if (user) {
+    if (alreadExistedUser) {
       return NextResponse.json(
-        { error: "username has already taken." },
+        { error: "نام کاربری تکراری است" },
         { status: 400 },
       );
     }
 
-    user = await prisma.user.findUnique({
-      where: { username: data.email },
+    alreadExistedUser = await prisma.user.findUnique({
+      where: { username: body.email },
     });
 
-    if (user) {
-      return NextResponse.json(
-        { error: "email has already taken." },
-        { status: 400 },
-      );
+    if (alreadExistedUser) {
+      return NextResponse.json({ error: "ایمیل تکراری است" }, { status: 400 });
     }
 
-    const hashedPassword = await hashPassword(data.password);
+    const hashedPassword = await hashPassword(body.password);
 
-    await prisma.user.create({ data: { ...data, password: hashedPassword } });
+    const createdUser = await prisma.user.create({
+      data: { ...body, password: hashedPassword },
+    });
 
-    await setAuthCookie();
+    await setAuthCookie(createdUser.id);
 
     return NextResponse.json({ data: null }, { status: 201 });
   });

@@ -1,7 +1,7 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-import { isSignedIn } from "@/utils/cookie.util";
+import { extractUserId } from "@/utils/cookie.util";
 
 const onlySignedInRoutes = ["/dashboard"];
 const onlyNotSignedInRoutes = ["/auth/sign-in", "/auth/sign-up"];
@@ -12,7 +12,7 @@ export default async function proxy(request: NextRequest) {
   const isOnlySignedInRoutes = onlySignedInRoutes.includes(pathname);
   const isOnlyNotSignedInRoutes = onlyNotSignedInRoutes.includes(pathname);
 
-  if (await isSignedIn(request)) {
+  if (await extractUserId(request)) {
     if (isOnlyNotSignedInRoutes && !pathname.startsWith("/dashboard")) {
       return NextResponse.redirect(new URL("/dashboard", request.url));
     }
