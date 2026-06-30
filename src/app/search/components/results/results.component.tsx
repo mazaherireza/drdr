@@ -8,58 +8,76 @@ import Link from "next/link";
 import { DoctorsContext } from "@/app/search/providers/doctors/doctors.provider";
 
 import { LocationIcon } from "@/components/icons/location.icon";
+import PaginationComponent from "@/components/pagination/pagination.component";
+
+import usePagination from "@/hooks/pagination.hook";
 
 import { convertEnNumToFa } from "@/utils/convert-en-num-to-fa.util";
 
 import styles from "./results.module.css";
 
+const PER_PAGE = 5;
+
 export default function ResultsComponent(): ReactNode {
   const { filteredDoctors } = useContext(DoctorsContext);
 
+  const { currentItems, currentPage, setCurrentPage, totalPages } =
+    usePagination({
+      items: filteredDoctors,
+      perPage: PER_PAGE,
+    });
+
   return (
-    <ul className={styles.results}>
-      {filteredDoctors.map((doctor) => (
-        <li key={doctor.id}>
-          <div className={styles.header}>
-            <div className={styles.image}>
-              <Image
-                src={`https://cdn.paziresh24.com${doctor.image}`}
-                alt="پروفایل پزشک"
-                width={150}
-                height={150}
-              />
+    <div className={styles.results}>
+      <ul className={styles.list}>
+        {currentItems.map((doctor) => (
+          <li key={doctor.id}>
+            <div className={styles.header}>
+              <div className={styles.image}>
+                <Image
+                  src={`https://cdn.paziresh24.com${doctor.image}`}
+                  alt="پروفایل پزشک"
+                  width={150}
+                  height={150}
+                />
+              </div>
+              <div className={styles.name}>{doctor.name}</div>
+              <div className={styles.brief}>{doctor.brief}</div>
+              <div className={styles.badges}>
+                {doctor.badges.map((badge) => (
+                  <div key={badge} className={styles.badge}>
+                    {badge}
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className={styles.name}>{doctor.name}</div>
-            <div className={styles.brief}>{doctor.brief}</div>
-            <div className={styles.badges}>
-              {doctor.badges.map((badge) => (
-                <div key={badge} className={styles.badge}>
-                  {badge}
-                </div>
-              ))}
+            <div className={styles.address}>
+              <LocationIcon /> آدرس: {doctor.address}
             </div>
-          </div>
-          <div className={styles.address}>
-            <LocationIcon /> آدرس: {doctor.address}
-          </div>
-          <div className={styles.actions}>
-            <div className={styles.rating}>
-              <span className={styles["average-rating"]}>
-                {convertEnNumToFa(
-                  (Math.floor(doctor.averageRating * 10) / 10).toString(),
-                )}
-              </span>{" "}
-              <span className={styles["total-votes"]}>
-                ( {convertEnNumToFa(doctor.totalVotes.toString())} نظر)
-              </span>
+            <div className={styles.actions}>
+              <div className={styles.rating}>
+                <span className={styles["average-rating"]}>
+                  {convertEnNumToFa(
+                    (Math.floor(doctor.averageRating * 10) / 10).toString(),
+                  )}
+                </span>{" "}
+                <span className={styles["total-votes"]}>
+                  ( {convertEnNumToFa(doctor.totalVotes.toString())} نظر)
+                </span>
+              </div>
+              <div className={styles.caption}>
+                اولین نوبت: {doctor.firstAvailableAppointment}
+              </div>
+              <Link href={`/doctor/${doctor.id}`}>نوبت‌دهی آنلاین</Link>
             </div>
-            <div className={styles.caption}>
-              اولین نوبت: {doctor.firstAvailableAppointment}
-            </div>
-            <Link href={`/doctor/${doctor.id}`}>نوبت‌دهی آنلاین</Link>
-          </div>
-        </li>
-      ))}
-    </ul>
+          </li>
+        ))}
+      </ul>
+      <PaginationComponent
+        currentPage={currentPage}
+        totalPages={totalPages}
+        setCurrentPage={setCurrentPage}
+      />
+    </div>
   );
 }

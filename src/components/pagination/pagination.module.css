@@ -1,0 +1,32 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  > li {
+    .button {
+      font-size: var(--fz-300);
+
+      display: inline-grid;
+      place-content: center;
+
+      inline-size: 2rem;
+      block-size: 2rem;
+
+      color: var(--color-primary);
+
+      border: 1px solid transparent;
+
+      border-radius: 99rem;
+
+      &.active {
+        color: var(--color-gray-99);
+        background-color: var(--color-primary);
+      }
+
+      &:hover {
+        border-color: var(--color-primary-darker);
+      }
+    }
+  }
+}
