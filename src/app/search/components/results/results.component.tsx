@@ -7,7 +7,7 @@ import Link from "next/link";
 
 import { DoctorsContext } from "@/app/search/providers/doctors/doctors.provider";
 
-import { LocationIcon } from "@/assets/icons/location.icon";
+import { LocationIcon } from "@/components/icons/location.icon";
 
 import { convertEnNumToFa } from "@/utils/convert-en-num-to-fa.util";
 
