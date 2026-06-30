@@ -21,6 +21,7 @@
 
   .socials {
     grid-area: socials;
+    align-self: end;
 
     > ul {
       display: flex;
