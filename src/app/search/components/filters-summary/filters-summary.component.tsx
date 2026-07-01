@@ -4,7 +4,7 @@ import { type ReactNode, useContext, useMemo } from "react";
 
 import { FiltersContext } from "@/app/search/providers/filters/filters.provider";
 
-import CardComponet from "@/components/card/card.component";
+import CardComponent from "@/components/card/card.component";
 
 import { FiltersType } from "@/types/filters.type";
 
@@ -14,7 +14,7 @@ export default function FiltersSummaryComponent(): ReactNode {
   const { filters, dispatchFilters } = useContext(FiltersContext);
 
   const shouldBeFiltered = useMemo(() => {
-    return filters.query && filters.gender && filters.speciality;
+    return filters.query || filters.gender || filters.speciality;
   }, [filters]);
 
   if (!shouldBeFiltered) {
@@ -30,7 +30,7 @@ export default function FiltersSummaryComponent(): ReactNode {
   };
 
   return (
-    <CardComponet>
+    <CardComponent>
       <div className={styles["filters-summary"]}>
         <div className={styles.title}>فیلترهای انتخاب‌شده: </div>
         <button type="button" onClick={removeAllFiltersClickHandler}>
@@ -57,6 +57,6 @@ export default function FiltersSummaryComponent(): ReactNode {
           )}
         </ul>
       </div>
-    </CardComponet>
+    </CardComponent>
   );
 }
