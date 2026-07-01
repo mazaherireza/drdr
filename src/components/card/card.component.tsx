@@ -9,7 +9,7 @@ type Props = PropsWithChildren<{
   title?: string;
 }>;
 
-export default function CardComponet({
+export default function CardComponent({
   children,
   className,
   title,
