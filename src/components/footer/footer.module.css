@@ -25,6 +25,7 @@
 
     > ul {
       display: flex;
+      justify-content: end;
       gap: 1rem;
 
       > li {
